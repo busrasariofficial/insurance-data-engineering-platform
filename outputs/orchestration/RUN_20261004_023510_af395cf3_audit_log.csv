@@ -1,0 +1,7 @@
+run_id,step_order,step_name,script_name,start_timestamp,end_timestamp,duration_seconds,status,return_code,error_message
+RUN_20261004_023510_af395cf3,1,Source Data Generation,01_generate_insurance_data.py,2026-10-04 02:35:10.373062,2026-10-04 02:35:12.466264,2.0932,SUCCESS,0,
+RUN_20261004_023510_af395cf3,2,Data Ingestion,02_data_ingestion.py,2026-10-04 02:35:12.475264,2026-10-04 02:35:14.509309,2.034,SUCCESS,0,
+RUN_20261004_023510_af395cf3,3,Data Quality Validation,03_data_quality_validation.py,2026-10-04 02:35:14.521310,2026-10-04 02:35:17.725569,3.2043,SUCCESS,0,
+RUN_20261004_023510_af395cf3,4,Data Transformation,04_data_transformation.py,2026-10-04 02:35:17.734508,2026-10-04 02:35:21.763564,4.0291,SUCCESS,0,
+RUN_20261004_023510_af395cf3,5,Database Loading,05_database_loading.py,2026-10-04 02:35:21.774564,2026-10-04 02:35:26.338301,4.5637,SUCCESS,0,
+RUN_20261004_023510_af395cf3,6,ETL Pipeline Monitoring,06_etl_pipeline_monitoring.py,2026-10-04 02:35:26.347303,2026-10-04 02:35:30.502839,4.1555,SUCCESS,0,

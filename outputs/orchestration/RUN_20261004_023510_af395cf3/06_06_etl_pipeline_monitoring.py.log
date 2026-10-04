@@ -1,0 +1,106 @@
+================================================================================
+INSURANCE DATA ENGINEERING PLATFORM - ETL PIPELINE MONITORING
+================================================================================
+
+================================================================================
+DATABASE CONNECTION
+================================================================================
+Database connection successful.
+C:\Users\Busra\PycharmProjects\Insurance_Data_Engineering_Platform\database\insurance_analytics.db
+
+================================================================================
+DATABASE OBJECT VALIDATION
+================================================================================
+[PASS] Table exists: dim_customer                         Actual: 1
+[PASS] Table exists: fact_quotes                          Actual: 1
+[PASS] Table exists: fact_policies                        Actual: 1
+[PASS] Table exists: fact_claims                          Actual: 1
+[PASS] Table exists: fact_events                          Actual: 1
+[PASS] Table exists: customer_360                         Actual: 1
+[PASS] Table exists: daily_business_summary               Actual: 1
+[PASS] View exists: vw_quote_conversion_by_channel        Actual: 1
+[PASS] View exists: vw_product_performance                Actual: 1
+[PASS] View exists: vw_policy_portfolio                   Actual: 1
+[PASS] View exists: vw_claim_performance                  Actual: 1
+[PASS] View exists: vw_customer_value                     Actual: 1
+
+================================================================================
+ROW COUNT VALIDATION
+================================================================================
+[PASS] dim_customer row count                             Actual: 10000
+[PASS] fact_quotes row count                              Actual: 50000
+[PASS] fact_policies row count                            Actual: 10613
+[PASS] fact_claims row count                              Actual: 4000
+[PASS] fact_events row count                              Actual: 100000
+[PASS] customer_360 row count                             Actual: 10000
+
+================================================================================
+PRIMARY KEY QUALITY MONITORING
+================================================================================
+[PASS] dim_customer.customer_id missing values            Actual: 0
+[PASS] dim_customer.customer_id duplicate keys            Actual: 0
+[PASS] fact_quotes.quote_id missing values                Actual: 0
+[PASS] fact_quotes.quote_id duplicate keys                Actual: 0
+[PASS] fact_policies.policy_id missing values             Actual: 0
+[PASS] fact_policies.policy_id duplicate keys             Actual: 0
+[PASS] fact_claims.claim_id missing values                Actual: 0
+[PASS] fact_claims.claim_id duplicate keys                Actual: 0
+[PASS] fact_events.event_id missing values                Actual: 0
+[PASS] fact_events.event_id duplicate keys                Actual: 0
+[PASS] customer_360.customer_id missing values            Actual: 0
+[PASS] customer_360.customer_id duplicate keys            Actual: 0
+
+================================================================================
+REFERENTIAL INTEGRITY MONITORING
+================================================================================
+[PASS] fact_quotes -> dim_customer                        Actual: 0
+[PASS] fact_policies -> dim_customer                      Actual: 0
+[PASS] fact_policies -> fact_quotes                       Actual: 0
+[PASS] fact_claims -> fact_policies                       Actual: 0
+[PASS] fact_events -> dim_customer                        Actual: 0
+
+================================================================================
+BUSINESS RULE MONITORING
+================================================================================
+[PASS] Invalid quote premium                              Actual: 0
+[PASS] Invalid policy premium                             Actual: 0
+[PASS] Invalid claim amount                               Actual: 0
+[PASS] Invalid quote conversion flag                      Actual: 0
+
+================================================================================
+PIPELINE KPI MONITORING
+================================================================================
+Customers:          10,000
+Quotes:             50,000
+Converted Quotes:   10,613
+Conversion Rate:    21.23%
+Policies:           10,613
+Claims:             4,000
+Events:             100,000
+Written Premium:    35,381,085.49
+Claim Amount:       21,941,974.13
+Loss Ratio Proxy:   62.02%
+
+================================================================================
+SAVE MONITORING OUTPUTS
+================================================================================
+Quality checks:
+C:\Users\Busra\PycharmProjects\Insurance_Data_Engineering_Platform\outputs\monitoring\pipeline_quality_checks.csv
+
+Pipeline KPIs:
+C:\Users\Busra\PycharmProjects\Insurance_Data_Engineering_Platform\outputs\monitoring\pipeline_kpis.csv
+
+Check summary:
+C:\Users\Busra\PycharmProjects\Insurance_Data_Engineering_Platform\outputs\monitoring\pipeline_check_summary.csv
+
+================================================================================
+FINAL PIPELINE STATUS
+================================================================================
+Total checks:  39
+Passed checks: 39
+Failed checks: 0
+Pipeline status: HEALTHY
+
+================================================================================
+ETL PIPELINE MONITORING COMPLETED
+================================================================================

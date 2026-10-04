@@ -1,0 +1,10 @@
+category,status,test_count
+Analytical Views,PASS,5
+Business Rule,PASS,7
+Database Objects,PASS,9
+Incremental ETL,PASS,4
+KPI Consistency,PASS,3
+Primary Key,PASS,12
+Referential Integrity,PASS,6
+Row Count,PASS,6
+Schema,PASS,42

@@ -1,0 +1,2 @@
+batch_id,pipeline_name,source_rows,new_rows,duplicate_rows,inserted_rows,updated_rows,previous_watermark,new_watermark,duration_seconds,status
+BATCH_20261004_024314_f053f4d7,insurance_event_incremental_load,5050,5000,50,5000,0,2026-09-29 23:53:55,2026-10-06 23:51:55,2.605211,SUCCESS

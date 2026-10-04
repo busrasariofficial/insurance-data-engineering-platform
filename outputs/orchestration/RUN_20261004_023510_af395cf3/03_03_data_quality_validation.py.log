@@ -1,0 +1,111 @@
+================================================================================
+INSURANCE DATA ENGINEERING PLATFORM - DATA QUALITY
+================================================================================
+
+================================================================================
+LOAD RAW DATA
+================================================================================
+customers   :     10,000 rows
+quotes      :     50,025 rows
+policies    :     10,613 rows
+claims      :      4,000 rows
+events      :    100,000 rows
+
+================================================================================
+CUSTOMER DATA QUALITY RULES
+================================================================================
+[PASS] customers  | customer_id must not be null                  | Failed: 0
+[PASS] customers  | customer_id must be unique                    | Failed: 0
+[PASS] customers  | age must be between 18 and 100                | Failed: 0
+[PASS] customers  | gender must be Female or Male                 | Failed: 0
+[FAIL] customers  | city must not be null                         | Failed: 50
+
+================================================================================
+QUOTE DATA QUALITY RULES
+================================================================================
+[PASS] quotes     | quote_id must not be null                     | Failed: 0
+[FAIL] quotes     | quote_id must be unique                       | Failed: 25
+[PASS] quotes     | customer_id must exist in customers           | Failed: 0
+[FAIL] quotes     | premium_amount must not be null               | Failed: 100
+[PASS] quotes     | premium_amount must be positive               | Failed: 0
+[PASS] quotes     | is_converted must be 0 or 1                   | Failed: 0
+[PASS] quotes     | product_type must be valid                    | Failed: 0
+[PASS] quotes     | channel must be valid                         | Failed: 0
+
+================================================================================
+POLICY DATA QUALITY RULES
+================================================================================
+[PASS] policies   | policy_id must be unique                      | Failed: 0
+[PASS] policies   | customer_id must exist in customers           | Failed: 0
+[PASS] policies   | quote_id must exist in quotes                 | Failed: 0
+[PASS] policies   | policy_end_date must be after start_date      | Failed: 0
+[PASS] policies   | premium_amount must be positive               | Failed: 0
+[PASS] policies   | policy_status must be valid                   | Failed: 0
+
+================================================================================
+CLAIM DATA QUALITY RULES
+================================================================================
+[PASS] claims     | claim_id must be unique                       | Failed: 0
+[PASS] claims     | policy_id must exist in policies              | Failed: 0
+[PASS] claims     | customer_id must exist in customers           | Failed: 0
+[PASS] claims     | claim_amount must be positive                 | Failed: 0
+[PASS] claims     | claim_status must be valid                    | Failed: 0
+
+================================================================================
+EVENT DATA QUALITY RULES
+================================================================================
+[PASS] events     | event_id must be unique                       | Failed: 0
+[PASS] events     | customer_id must exist in customers           | Failed: 0
+[PASS] events     | event_type must be valid                      | Failed: 0
+[PASS] events     | device_type must be valid                     | Failed: 0
+
+================================================================================
+DATA QUALITY REPORT
+================================================================================
+Validation rules: 28
+Passed rules:     25
+Failed rules:     3
+Error failures:   2
+Warning failures: 1
+
+Report saved to:
+C:\Users\Busra\PycharmProjects\Insurance_Data_Engineering_Platform\data\processed\data_quality_validation_report.csv
+
+================================================================================
+DATA QUALITY REMEDIATION
+================================================================================
+Customer missing cities repaired: 50
+Duplicate quotes removed: 25
+Missing quote premiums repaired: 100
+
+================================================================================
+POST-CLEANING VALIDATION
+================================================================================
+[PASS] Missing customer cities             Remaining: 0
+[PASS] Duplicate quote IDs                 Remaining: 0
+[PASS] Missing quote premiums              Remaining: 0
+
+================================================================================
+SAVE CLEAN DATA
+================================================================================
+customers    ->     10,000 rows
+quotes       ->     50,000 rows
+policies     ->     10,613 rows
+claims       ->      4,000 rows
+events       ->    100,000 rows
+
+================================================================================
+FINAL DATA QUALITY CHECK
+================================================================================
+Quality rules executed: 28
+
+Controlled source-data issues detected and repaired:
+- Missing customer cities
+- Missing quote premiums
+- Duplicate quote IDs
+
+Clean datasets created successfully.
+
+================================================================================
+DATA QUALITY VALIDATION COMPLETED
+================================================================================

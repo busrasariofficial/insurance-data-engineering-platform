@@ -1,0 +1,6 @@
+category,status,check_count
+Business Rule,PASS,4
+Database Object,PASS,12
+Primary Key,PASS,12
+Referential Integrity,PASS,5
+Row Count,PASS,6

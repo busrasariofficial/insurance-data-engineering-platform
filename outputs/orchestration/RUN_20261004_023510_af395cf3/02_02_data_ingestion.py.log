@@ -1,0 +1,97 @@
+================================================================================
+INSURANCE DATA ENGINEERING PLATFORM - DATA INGESTION
+================================================================================
+
+================================================================================
+SOURCE FILE VALIDATION
+================================================================================
+[OK] customers.csv
+[OK] quotes.csv
+[OK] policies.csv
+[OK] claims.csv
+[OK] events.csv
+
+All expected source files are available.
+
+================================================================================
+SOURCE DATA INGESTION
+================================================================================
+customers        10,000 rows |  5 columns
+quotes           50,025 rows |  7 columns
+policies         10,613 rows |  8 columns
+claims            4,000 rows |  6 columns
+events          100,000 rows |  5 columns
+
+================================================================================
+SCHEMA VALIDATION
+================================================================================
+[OK] customers    schema validated
+[OK] quotes       schema validated
+[OK] policies     schema validated
+[OK] claims       schema validated
+[OK] events       schema validated
+
+================================================================================
+DATA TYPE CONVERSION
+================================================================================
+Date and numeric conversions completed.
+
+================================================================================
+INITIAL DATA QUALITY PROFILE
+================================================================================
+  dataset   rows  columns  duplicate_rows  missing_values  missing_percentage
+customers  10000        5               0              50              0.1000
+   quotes  50025        7              25             100              0.0286
+ policies  10613        8               0               0              0.0000
+   claims   4000        6               0               0              0.0000
+   events 100000        5               0               0              0.0000
+
+================================================================================
+PRIMARY KEY QUALITY CHECK
+================================================================================
+customers    | PK: customer_id  | Missing: 0    | Duplicates: 0    | Unique: 10,000
+quotes       | PK: quote_id     | Missing: 0    | Duplicates: 25   | Unique: 50,000
+policies     | PK: policy_id    | Missing: 0    | Duplicates: 0    | Unique: 10,613
+claims       | PK: claim_id     | Missing: 0    | Duplicates: 0    | Unique: 4,000
+events       | PK: event_id     | Missing: 0    | Duplicates: 0    | Unique: 100,000
+
+================================================================================
+REFERENTIAL INTEGRITY CHECK
+================================================================================
+[OK] quotes.customer_id        orphan records: 0
+[OK] policies.customer_id      orphan records: 0
+[OK] policies.quote_id         orphan records: 0
+[OK] claims.customer_id        orphan records: 0
+[OK] claims.policy_id          orphan records: 0
+[OK] events.customer_id        orphan records: 0
+
+================================================================================
+INGESTION METADATA
+================================================================================
+dataset_name                source_system source_layer  row_count  column_count        ingestion_timestamp
+   customers synthetic_insurance_platform      raw_csv      10000             5 2026-10-04 02:35:14.408056
+      quotes synthetic_insurance_platform      raw_csv      50025             7 2026-10-04 02:35:14.408056
+    policies synthetic_insurance_platform      raw_csv      10613             8 2026-10-04 02:35:14.408056
+      claims synthetic_insurance_platform      raw_csv       4000             6 2026-10-04 02:35:14.408056
+      events synthetic_insurance_platform      raw_csv     100000             5 2026-10-04 02:35:14.408056
+
+================================================================================
+SAVE INGESTION OUTPUTS
+================================================================================
+Saved: C:\Users\Busra\PycharmProjects\Insurance_Data_Engineering_Platform\data\processed\data_quality_profile.csv
+Saved: C:\Users\Busra\PycharmProjects\Insurance_Data_Engineering_Platform\data\processed\primary_key_check.csv
+Saved: C:\Users\Busra\PycharmProjects\Insurance_Data_Engineering_Platform\data\processed\referential_integrity_check.csv
+Saved: C:\Users\Busra\PycharmProjects\Insurance_Data_Engineering_Platform\data\processed\ingestion_metadata.csv
+
+================================================================================
+FINAL INGESTION CHECK
+================================================================================
+Datasets ingested: 5
+Total records processed: 174,638
+Schema validation: COMPLETED
+Primary key validation: COMPLETED
+Referential integrity validation: COMPLETED
+
+================================================================================
+DATA INGESTION COMPLETED
+================================================================================
